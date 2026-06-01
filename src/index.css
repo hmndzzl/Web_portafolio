@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Color System */
+  --bg-deepspace: #020205;
+  --bg-card: rgba(2, 2, 5, 0.80);
+  --bg-card-hover: rgba(10, 10, 15, 0.90);
+  
+  --color-primary: #00D6FF;      /* Cyan Turquoise */
+  --color-secondary: #0050FF;    /* Deep Electric Blue */
+  --color-accent: #00D6FF;       /* Cyan Turquoise */
+  
+  --text-primary: #ffffff;       /* Pure White Starlight */
+  --text-secondary: #9ca3af;     /* Cosmic Dust Grey */
+  --text-muted: #6b7280;         /* Dark Void Grey */
+  
+  --border-glow: rgba(0, 214, 255, 0.25);
+  --border-neon-cyan: rgba(0, 214, 255, 0.35); /* Kept old class name temporarily */
+  --border-neon-purple: rgba(0, 80, 255, 0.35);
+  
+  /* Fonts */
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --font-space-name: 'Orbitron', sans-serif;
+  --font-space-role: 'Rajdhani', sans-serif;
+  
+  /* Layout Transitions */
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Global resets and structures */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide defaults for beautiful customization */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deepspace);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 214, 255, 0.15);
+  border: 2px solid var(--bg-deepspace);
+  border-radius: 10px;
+  transition: var(--transition-smooth);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 80, 255, 0.45);
+}
+
+/* Custom Text Highlight selection */
+::selection {
+  background: rgba(0, 214, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* Glassmorphism utility base rules */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  transition: var(--transition-smooth);
+}
+
+.glass-panel:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 214, 255, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(0, 214, 255, 0.15);
+}
+
+/* Custom glow utility effects */
+.neon-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 214, 255, 0.5), 0 0 20px rgba(0, 214, 255, 0.2);
+}
+
+.neon-glow-purple {
+  text-shadow: 0 0 10px rgba(0, 80, 255, 0.5), 0 0 20px rgba(0, 80, 255, 0.2);
+}
+
+.neon-border-glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 214, 255, 0.15), inset 0 0 15px rgba(0, 214, 255, 0.05);
+}
+
+.neon-border-glow-purple {
+  box-shadow: 0 0 15px rgba(0, 80, 255, 0.15), inset 0 0 15px rgba(0, 80, 255, 0.05);
+}
+
+/* Pulse keyframes for starlight buttons */
+@keyframes starPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 214, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(0, 214, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 214, 255, 0);
+  }
+}
+
+.star-pulse-button {
+  animation: starPulse 2.5s infinite;
+}
