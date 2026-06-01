@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hugo_mendez_portfolio
+    restart: unless-stopped
+    ports:
+      - "8085:80"
+    networks:
+      - internal_bridge
+
+networks:
+  internal_bridge:
+    driver: bridge
