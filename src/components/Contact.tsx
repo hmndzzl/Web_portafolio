@@ -108,7 +108,7 @@ export const Contact: React.FC = () => {
         break;
       case 'linkedin':
         newLines.push({ type: 'output', text: 'Establishing secure bridge to LinkedIn...' });
-        window.open('https://linkedin.com', '_blank');
+        window.open('https://www.linkedin.com/in/hugo-méndez-bb6741413/', '_blank');
         break;
       case 'clear':
         setHistory([]);
@@ -186,7 +186,7 @@ export const Contact: React.FC = () => {
 
               {/* LinkedIn Link */}
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/hugo-m%C3%A9ndez-bb6741413/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles.actionCard} glass-panel`}
