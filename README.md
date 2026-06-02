@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# Portfolio 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Hugo Méndez
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Welcome to the source code of my interactive developer portfolio. This project is a high-performance, ultra-premium web experience built to showcase my skills as a Full-Stack Software Engineer. 
 
-## React Compiler
+It features a custom-built 240-frame neural network scrollytelling background, a fully interactive terminal contact form, and a sleek, custom-designed dark-mode glassmorphism aesthetic.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 The Tech Stack
 
-## Expanding the ESLint configuration
+This project was built from the ground up focusing on performance, scalability, and seamless deployment:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend Core**: React 18, TypeScript, Vite
+- **Styling**: Pure Vanilla CSS (Custom Glassmorphism Design System, CSS Modules)
+- **Animation Engine**: High-performance HTML5 Canvas synchronized with scroll events (`requestAnimationFrame`), utilizing a pre-rendered 240-frame image sequence for the neural network background.
+- **Containerization & Deployment**: Multi-stage Docker builds serving static files via an ultra-fast Nginx container.
+- **Icons & Extras**: Lucide React for consistent, scalable iconography.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ How to Run Locally (Production Environment)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The easiest and most reliable way to run this project is using Docker. This ensures you are running the exact same optimized environment as the live production server.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Prerequisites
+- [Docker](https://docs.docker.com/get-docker/) installed and running on your machine.
+- [Git](https://git-scm.com/) installed.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Execution Steps
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/hmndzzl/Web_portafolio.git
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Navigate into the project directory:**
+   ```bash
+   cd Web_portafolio
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Build and start the Docker container:**
+   ```bash
+   docker compose up --build -d
+   ```
+
+4. **View the live application:**
+   Open your browser and navigate to [http://localhost:8085](http://localhost:8085). The app is now running inside a highly optimized Nginx container.
+
+To stop the server later, simply run `docker compose down`.
+
+## 💻 Running in Development Mode
+
+If you wish to modify the code and see real-time updates (Hot Module Replacement), run the application via Node.js instead of Docker.
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the Vite development server:
+   ```bash
+   npm run dev
+   ```
+
+## 🧠 Key Engineering Highlights
+- **Zero-Dependency Scroll Animation**: The cinematic background is driven by pure JavaScript math and HTML5 Canvas, completely avoiding heavy animation libraries for maximum FPS.
+- **Strict Architecture**: The codebase uses strict TypeScript interfaces and isolated CSS Modules to prevent global style bleeding.
+- **Terminal Emulator**: The contact section features a custom-built, functional command-line interface that processes specific commands (like `help`, `skills`, `projects`, and `email`).
+
